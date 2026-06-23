@@ -45,7 +45,7 @@
 body{font-family:'Poppins',sans-serif;background:#fffde7;line-height:1.6;overflow-x:hidden;}
 
 /* Navbar height variables (used for scroll offsets) */
-:root{--nav-height-desktop:56px;--nav-height-mobile:44px;--nav-height:var(--nav-height-desktop);} 
+:root{--nav-height-desktop:56px;--nav-height-mobile:38px;--nav-height:var(--nav-height-desktop);}
 
 /* ─── SLIDE TRANSITION OVERLAY ─── */
 #slide-overlay{
@@ -276,7 +276,7 @@ footer{background:linear-gradient(135deg,#000000 0%,#000000 50%,#000000 100%);co
 /* ─── MOBILE PHONES (max-width:700px) ─── */
 @media(max-width:700px){
   /* Moderate mobile navbar height: slightly larger touch area but compact visual */
-  .navbar{padding:8px 12px;gap:0;justify-content:space-between;position:sticky;top:0;z-index:1000;min-height:var(--nav-height-mobile);}
+  .navbar{padding:4px 12px;gap:0;justify-content:space-between;position:sticky;top:0;z-index:1000;min-height:36px;}
   /* Mobile: plain black centered brand (no rounded rectangle) */
   .navbar-brand{background:none;color:#000000;padding:0;font-size:14px;border-radius:0;box-shadow:none;position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;z-index:1001;font-weight:700;}
   .navbar-links{display:none;}
