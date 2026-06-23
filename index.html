@@ -44,6 +44,9 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Poppins',sans-serif;background:#fffde7;line-height:1.6;overflow-x:hidden;}
 
+/* Navbar height variables (used for scroll offsets) */
+:root{--nav-height-desktop:56px;--nav-height-mobile:52px;--nav-height:var(--nav-height-desktop);} 
+
 /* ─── SLIDE TRANSITION OVERLAY ─── */
 #slide-overlay{
   position:fixed;
@@ -61,7 +64,7 @@ body{font-family:'Poppins',sans-serif;background:#fffde7;line-height:1.6;overflo
   100%{transform:translateX(0%);}
 }
 
-.navbar{background:#fdd835;padding:6px 20px;display:flex;align-items:center;justify-content:space-between;height:auto;min-height:48px;box-shadow:0 4px 16px rgba(0,0,0,0.12);position:sticky;top:0;z-index:1000;gap:24px;}
+.navbar{background:#fdd835;padding:6px 20px;display:flex;align-items:center;justify-content:space-between;height:auto;min-height:var(--nav-height);box-shadow:0 4px 16px rgba(0,0,0,0.12);position:sticky;top:0;z-index:1000;gap:24px;}
 .navbar-brand{background:#000000;color:#fdd835;padding:5px 16px;border-radius:50px;font-weight:700;font-size:14px;letter-spacing:.4px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.2);}
 .navbar-links{display:flex;align-items:center;gap:6px;list-style:none;margin:0;padding:0;}
 .navbar-links li{margin:0;}
@@ -273,12 +276,13 @@ footer{background:linear-gradient(135deg,#000000 0%,#000000 50%,#000000 100%);co
 /* ─── MOBILE PHONES (max-width:700px) ─── */
 @media(max-width:700px){
   /* Moderate mobile navbar height: slightly larger touch area but compact visual */
-  .navbar{padding:8px 12px;gap:0;justify-content:space-between;position:sticky;top:0;z-index:1000;min-height:50px;}
+  .navbar{padding:8px 12px;gap:0;justify-content:space-between;position:sticky;top:0;z-index:1000;min-height:56px;}
   /* Mobile: plain black centered brand (no rounded rectangle) */
   .navbar-brand{background:none;color:#000000;padding:0;font-size:14px;border-radius:0;box-shadow:none;position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;z-index:1001;font-weight:700;}
   .navbar-links{display:none;}
-  .navbar-menu-toggle{display:flex;align-items:center;justify-content:center;padding:6px 8px;}
-  .mobile-menu{width:100%;}
+  /* place hamburger at right */
+  .navbar-menu-toggle{display:flex;align-items:center;justify-content:center;padding:6px 8px;order:3;margin-left:auto;}
+  .mobile-menu{width:100%;top:56px;}
   .mobile-menu a{padding:14px 20px;font-size:14px;}
   .hero{min-height:auto;}
   .overlay{padding:40px 15px 20px;gap:6px;min-height:-webkit-fill-available;}
@@ -315,6 +319,19 @@ footer{background:linear-gradient(135deg,#000000 0%,#000000 50%,#000000 100%);co
   .footer-badge{font-size:14px;padding:6px 14px;}
   .notice-img{height:180px;}
 }
+
+/* Prevent sticky navbar from covering anchored sections */
+section, .hero, .section-pad, #program, #contact{
+  scroll-margin-top: var(--nav-height);
+}
+
+@media(max-width:700px){
+  :root{--nav-height:var(--nav-height-mobile);} /* mobile offset */
+  section, .hero, .section-pad, #program, #contact{
+    scroll-margin-top: calc(var(--nav-height));
+  }
+}
+
 </style>
 </head>
 <body>
