@@ -25,18 +25,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-<link rel="preconnect" href="https://www.google.com" crossorigin>
+<link rel="dns-prefetch" href="https://www.google.com">
+<link rel="dns-prefetch" href="https://maps.googleapis.com">
 
-<!-- ═══ SPEED: Preload hero background + logo ═══ -->
-<link rel="preload" as="image" href="church.png">
-<link rel="preload" as="image" href="logo.png">
-<link rel="preload" as="image" href="flyer.png">
+<!-- ═══ SPEED: Preload critical hero assets ═══ -->
+<link rel="preload" as="image" href="church.png" fetchpriority="high">
+<link rel="preload" as="image" href="logo.png" fetchpriority="high">
+<link rel="preload" as="font" href="https://fonts.gstatic.com/s/poppins/v20/pxiGyp8kv8JHgFVrLMX8Z1xlFd2JQEl8qw.woff2" type="font/woff2" crossorigin>
 
 <!-- ═══ Google Fonts with font-display=swap ═══ -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
-<!-- ═══ Font Awesome — non-blocking load ═══ -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
+<!-- ═══ Font Awesome — async non-blocking load ═══ -->
+<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
 
 <style>
@@ -314,7 +315,7 @@ footer{background:linear-gradient(135deg,#000000 0%,#000000 50%,#000000 100%);co
     <div class="flyer-card" style="align-self:start;" onclick="openPopup(event)">
       <div class="card-icon"><i class="fas fa-image"></i></div>
       <div class="card-title">Flyer — tap to enlarge</div>
-      <img src="flyer.png" class="notice-img" alt="Church Flyer" loading="lazy" decoding="async">
+      <img src="flyer.png" class="notice-img" alt="Church Flyer" loading="lazy" decoding="async" fetchpriority="low">
     </div>
   </div>
 </section>
@@ -354,7 +355,7 @@ footer{background:linear-gradient(135deg,#000000 0%,#000000 50%,#000000 100%);co
 <!-- MAP -->
 <section class="map-sec">
   <div class="section-title">FIND US</div>
-  <iframe src="https://www.google.com/maps?q=Egbeda+Lagos&output=embed" allowfullscreen loading="lazy"></iframe>
+  <iframe src="https://www.google.com/maps?q=Egbeda+Lagos&output=embed" allowfullscreen loading="lazy" allow="geolocation"></iframe>
 </section>
 
 <!-- FOOTER -->
@@ -382,7 +383,7 @@ footer{background:linear-gradient(135deg,#000000 0%,#000000 50%,#000000 100%);co
   </div>
 </footer>
 
-<script>
+<script defer>
 /* ── POPUP ── */
 function openPopup(event) {
   event.stopPropagation();
