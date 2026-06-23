@@ -272,10 +272,12 @@ footer{background:linear-gradient(135deg,#000000 0%,#000000 50%,#000000 100%);co
 
 /* ─── MOBILE PHONES (max-width:700px) ─── */
 @media(max-width:700px){
-  .navbar{padding:5px 12px;gap:0;justify-content:space-between;position:sticky;top:0;z-index:1000;}
-  .navbar-brand{padding:3px 10px;font-size:12px;}
+  /* Moderate mobile navbar height: slightly larger touch area but compact visual */
+  .navbar{padding:8px 12px;gap:0;justify-content:space-between;position:sticky;top:0;z-index:1000;min-height:50px;}
+  /* Mobile: plain black centered brand (no rounded rectangle) */
+  .navbar-brand{background:none;color:#000000;padding:0;font-size:14px;border-radius:0;box-shadow:none;position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;z-index:1001;font-weight:700;}
   .navbar-links{display:none;}
-  .navbar-menu-toggle{display:flex;align-items:center;justify-content:center;padding:4px 6px;}
+  .navbar-menu-toggle{display:flex;align-items:center;justify-content:center;padding:6px 8px;}
   .mobile-menu{width:100%;}
   .mobile-menu a{padding:14px 20px;font-size:14px;}
   .hero{min-height:auto;}
