@@ -68,6 +68,12 @@ body{font-family:'Poppins',sans-serif;background:#fffde7;line-height:1.6;overflo
 .navbar-links a{display:flex;align-items:center;justify-content:center;padding:6px 14px;color:#000000;font-weight:600;font-size:13px;text-decoration:none;transition:all .25s cubic-bezier(0.4,0,0.2,1);border-radius:12px;position:relative;}
 .navbar-links a:hover{background:rgba(0,0,0,0.08);transform:translateY(-2px);}
 .navbar-links a:active{transform:scale(.96);}
+.navbar-menu-toggle{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:#000000;font-weight:700;padding:4px 8px;}
+.mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fdd835;flex-direction:column;gap:0;padding:0;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:999;}
+.mobile-menu.active{display:flex;}
+.mobile-menu a{display:flex;align-items:center;justify-content:flex-start;padding:14px 20px;color:#000000;font-weight:600;font-size:14px;text-decoration:none;border-bottom:1px solid rgba(0,0,0,0.1);transition:background .2s;}
+.mobile-menu a:last-child{border-bottom:none;}
+.mobile-menu a:active{background:rgba(0,0,0,0.15);}
 
 /* ── FIX: removed min-height:100vh — hero now sizes to content ── */
 .hero{background:#000000 url('church.png') no-repeat center/cover;position:relative;display:flex;}
@@ -266,10 +272,12 @@ footer{background:linear-gradient(135deg,#000000 0%,#000000 50%,#000000 100%);co
 
 /* ─── MOBILE PHONES (max-width:700px) ─── */
 @media(max-width:700px){
-  .navbar{flex-wrap:wrap;padding:6px 15px;gap:10px;min-height:auto;}
-  .navbar-brand{padding:4px 12px;font-size:12px;}
-  .navbar-links{width:100%;gap:4px;}
-  .navbar-links a{padding:6px 10px;font-size:11px;min-height:44px;}
+  .navbar{flex-wrap:nowrap;padding:8px 15px;gap:0;justify-content:space-between;position:relative;}
+  .navbar-brand{padding:5px 12px;font-size:13px;}
+  .navbar-links{display:none;}
+  .navbar-menu-toggle{display:flex;align-items:center;justify-content:center;}
+  .mobile-menu{width:100%;}
+  .mobile-menu a{padding:14px 20px;font-size:14px;}
   .hero{min-height:auto;}
   .overlay{padding:40px 15px 20px;gap:6px;min-height:-webkit-fill-available;}
   /* ─── mobile top-text hierarchy ─── */
@@ -314,12 +322,19 @@ footer{background:linear-gradient(135deg,#000000 0%,#000000 50%,#000000 100%);co
 
 <nav class="navbar">
   <div class="navbar-brand">WELCOME!</div>
+  <button class="navbar-menu-toggle">☰</button>
   <ul class="navbar-links">
     <li><a href="#" onclick="document.querySelector('.hero').scrollIntoView({behavior:'smooth'}); return false;">HOME</a></li>
     <li><a href="#" onclick="document.querySelectorAll('.section-pad')[0].scrollIntoView({behavior:'smooth'}); return false;">ABOUT</a></li>
     <li><a href="#program" onclick="document.getElementById('program').scrollIntoView({behavior:'smooth'}); return false;">PROGRAMS</a></li>
     <li><a href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'}); return false;">CONTACT</a></li>
   </ul>
+  <div class="mobile-menu">
+    <a href="#" onclick="document.querySelector('.hero').scrollIntoView({behavior:'smooth'}); return false;">HOME</a>
+    <a href="#" onclick="document.querySelectorAll('.section-pad')[0].scrollIntoView({behavior:'smooth'}); return false;">ABOUT</a>
+    <a href="#program" onclick="document.getElementById('program').scrollIntoView({behavior:'smooth'}); return false;">PROGRAMS</a>
+    <a href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'}); return false;">CONTACT</a>
+  </div>
 </nav>
 
 <section class="hero">
@@ -467,6 +482,32 @@ footer{background:linear-gradient(135deg,#000000 0%,#000000 50%,#000000 100%);co
 </footer>
 
 <script defer>
+/* ── MOBILE MENU TOGGLE ── */
+document.addEventListener('DOMContentLoaded', function(){
+  var menuToggle = document.querySelector('.navbar-menu-toggle');
+  var mobileMenu = document.querySelector('.mobile-menu');
+  
+  if(menuToggle && mobileMenu){
+    menuToggle.addEventListener('click', function(e){
+      e.stopPropagation();
+      mobileMenu.classList.toggle('active');
+    });
+    
+    var mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(function(link){
+      link.addEventListener('click', function(){
+        mobileMenu.classList.remove('active');
+      });
+    });
+    
+    document.addEventListener('click', function(e){
+      if(!e.target.closest('.navbar')){
+        mobileMenu.classList.remove('active');
+      }
+    });
+  }
+});
+
 /* ── POPUP ── */
 function openPopup(event) {
   event.stopPropagation();
