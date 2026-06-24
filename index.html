@@ -5,10 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>St. Michael's Anglican Church, Egbeda — Citadel of Peace</title>
 
-<!-- ═══════════════════════════════════════════════
-     OPEN GRAPH / WHATSAPP / FACEBOOK PREVIEW TAGS
-     ═══════════════════════════════════════════════ -->
-<meta property="og:title" content="St. Michael's Anglican Church, Egbeda - Citadel of Peace,where Jesus Reigns Website" />
+<!-- OG / SOCIAL PREVIEW -->
+<meta property="og:title" content="St. Michael's Anglican Church, Egbeda - Citadel of Peace, where Jesus Reigns" />
 <meta property="og:image" content="https://vortexsmithz.github.io/st.michaelsanglicanchurch/preview.jpg" />
 <meta property="og:image:secure_url" content="https://vortexsmithz.github.io/st.michaelsanglicanchurch/preview.jpg" />
 <meta property="og:image:width" content="1200" />
@@ -18,239 +16,274 @@
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="St. Michael's Anglican Church, Egbeda" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="St. Michael's Anglican Church - Citadel of Peace,where Jesus Reigns Website" />
+<meta name="twitter:title" content="St. Michael's Anglican Church - Citadel of Peace, where Jesus Reigns" />
 <meta name="twitter:image" content="https://vortexsmithz.github.io/st.michaelsanglicanchurch/preview.jpg" />
 
-<!-- ═══ SPEED: Preconnect to external servers FIRST ═══ -->
+<!-- SPEED: Preconnect to external servers -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="dns-prefetch" href="https://www.google.com">
 <link rel="dns-prefetch" href="https://maps.googleapis.com">
 
-<!-- ═══ SPEED: Preload critical hero assets ═══ -->
+<!-- SPEED: Preload critical assets -->
 <link rel="preload" as="image" href="church.png" fetchpriority="high">
 <link rel="preload" as="image" href="logo.png" fetchpriority="high">
 <link rel="preload" as="font" href="https://fonts.gstatic.com/s/poppins/v20/pxiGyp8kv8JHgFVrLMX8Z1xlFd2JQEl8qw.woff2" type="font/woff2" crossorigin>
 
-<!-- ═══ Google Fonts with font-display=swap ═══ -->
+<!-- SPEED: Non-blocking Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
-<!-- ═══ Font Awesome — async non-blocking load ═══ -->
+<!-- SPEED: Non-blocking Font Awesome -->
 <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
 
 <style>
+/* ── RESET ── */
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Poppins',sans-serif;background:#fffde7;line-height:1.6;overflow-x:hidden;}
 
-/* Navbar height variables (used for scroll offsets) */
-:root{--nav-height-desktop:56px;--nav-height-mobile:38px;--nav-height:var(--nav-height-desktop);}
-
-/* ─── SLIDE TRANSITION OVERLAY ─── */
-#slide-overlay{
-  position:fixed;
-  inset:0;
-  background:#000000;
-  z-index:99999;
-  transform:translateX(100%);
-  pointer-events:none;
-}
-#slide-overlay.slide-go{
-  animation:slideGo 0.38s cubic-bezier(0.7,0,1,1) forwards;
-}
-@keyframes slideGo{
-  0%  {transform:translateX(100%);}
-  100%{transform:translateX(0%);}
+/* ── CSS VARIABLES ── */
+:root{
+  --gold:#fdd835;
+  --gold-dark:#f9a825;
+  --black:#000;
+  --white:#fff;
+  --nav-h:64px;
+  --nav-h-mob:52px;
+  --radius-pill:50px;
+  --radius-card:18px;
+  --nav-blur:blur(18px);
+  --nav-bg:rgba(253,216,53,0.92);
+  --nav-border:rgba(0,0,0,0.08);
+  --transition:.25s cubic-bezier(.4,0,.2,1);
 }
 
-.navbar{background:#fdd835;padding:6px 20px;display:flex;align-items:center;justify-content:space-between;height:auto;min-height:var(--nav-height);box-shadow:0 4px 16px rgba(0,0,0,0.12);position:sticky;top:0;z-index:1000;gap:24px;}
-.navbar-brand{background:#000000;color:#fdd835;padding:5px 16px;border-radius:50px;font-weight:700;font-size:14px;letter-spacing:.4px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.2);}
-.navbar-links{display:flex;align-items:center;gap:6px;list-style:none;margin:0;padding:0;}
-.navbar-links li{margin:0;}
-.navbar-links a{display:flex;align-items:center;justify-content:center;padding:6px 14px;color:#000000;font-weight:600;font-size:13px;text-decoration:none;transition:all .25s cubic-bezier(0.4,0,0.2,1);border-radius:12px;position:relative;}
-.navbar-links a:hover{background:rgba(0,0,0,0.08);transform:translateY(-2px);}
-.navbar-links a:active{transform:scale(.96);}
-.navbar-menu-toggle{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:#000000;font-weight:700;padding:4px 8px;}
-.mobile-menu{display:none;position:absolute;top:100%;left:0;right:0;background:#fdd835;flex-direction:column;gap:0;padding:0;box-shadow:0 4px 12px rgba(0,0,0,0.15);z-index:999;}
-.mobile-menu.active{display:flex;}
-.mobile-menu a{display:flex;align-items:center;justify-content:flex-start;padding:14px 20px;color:#000000;font-weight:600;font-size:14px;text-decoration:none;border-bottom:1px solid rgba(0,0,0,0.1);transition:background .2s;}
-.mobile-menu a:last-child{border-bottom:none;}
-.mobile-menu a:active{background:rgba(0,0,0,0.15);}
+/* ── SLIDE OVERLAY ── */
+#slide-overlay{position:fixed;inset:0;background:#000;z-index:99999;transform:translateX(100%);pointer-events:none;}
+#slide-overlay.slide-go{animation:slideGo .38s cubic-bezier(.7,0,1,1) forwards;}
+@keyframes slideGo{0%{transform:translateX(100%)}100%{transform:translateX(0)}}
 
-/* ── FIX: removed min-height:100vh — hero now sizes to content ── */
-.hero{background:#000000 url('church.png') no-repeat center/cover;position:relative;display:flex;}
+/* ════════════════════════════════════════
+   2026 PREMIUM NAVBAR
+════════════════════════════════════════ */
+.navbar{
+  position:sticky;top:0;z-index:1000;
+  height:var(--nav-h);
+  background:var(--nav-bg);
+  backdrop-filter:var(--nav-blur);
+  -webkit-backdrop-filter:var(--nav-blur);
+  border-bottom:1px solid var(--nav-border);
+  box-shadow:0 1px 0 rgba(255,255,255,.3),0 4px 24px rgba(0,0,0,.1);
+  padding:0 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  transition:background var(--transition),box-shadow var(--transition);
+}
 
-.overlay{position:relative;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 20px;gap:8px;background:rgba(0,0,0,0.42);min-height:auto;}
+/* Scrolled state — slightly more opaque */
+.navbar.scrolled{
+  background:rgba(253,216,53,0.97);
+  box-shadow:0 2px 32px rgba(0,0,0,.15);
+}
 
-/* ─── TOP TEXT HIERARCHY ─── */
+/* ── Brand pill ── */
+.nav-brand{
+  display:flex;align-items:center;gap:10px;
+  flex-shrink:0;
+}
+.nav-brand-icon{
+  width:36px;height:36px;border-radius:50%;
+  background:#000;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.nav-brand-icon img{width:22px;height:22px;object-fit:contain;display:block;}
+.nav-brand-text{
+  display:flex;flex-direction:column;line-height:1.1;
+}
+.nav-brand-text .nb-top{font-size:11px;font-weight:600;color:#000;letter-spacing:.6px;text-transform:uppercase;opacity:.6;}
+.nav-brand-text .nb-main{font-size:11.5px;font-weight:700;color:#000;letter-spacing:.1px;}
+
+/* ── Desktop links ── */
+.nav-links{
+  display:flex;align-items:center;gap:2px;
+  list-style:none;margin:0 0 0 auto;
+}
+.nav-links li a{
+  display:flex;align-items:center;gap:6px;
+  padding:8px 16px;
+  color:#000;
+  font-size:13px;font-weight:600;letter-spacing:.3px;text-transform:uppercase;
+  text-decoration:none;
+  border-radius:var(--radius-pill);
+  transition:background var(--transition),transform var(--transition);
+  white-space:nowrap;
+  position:relative;
+}
+.nav-links li a::after{
+  content:'';
+  position:absolute;bottom:4px;left:50%;right:50%;
+  height:2px;background:#000;border-radius:1px;
+  transition:left var(--transition),right var(--transition);
+}
+.nav-links li a:hover{background:rgba(0,0,0,.08);}
+.nav-links li a:hover::after{left:16px;right:16px;}
+.nav-links li a:active{transform:scale(.95);}
+
+/* ── CTA button in navbar ── */
+.nav-cta{
+  display:flex;align-items:center;gap:8px;
+  padding:9px 20px;
+  background:#000;color:var(--gold);
+  font-size:12px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;
+  border:none;border-radius:var(--radius-pill);
+  cursor:pointer;text-decoration:none;white-space:nowrap;
+  flex-shrink:0;
+  transition:background var(--transition),transform var(--transition),box-shadow var(--transition);
+  box-shadow:0 2px 12px rgba(0,0,0,.25);
+}
+.nav-cta:hover{background:#222;transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,0,0,.3);}
+.nav-cta:active{transform:scale(.95);}
+
+
+/* ── Hamburger ── */
+.nav-hamburger{
+  display:none;
+  flex-direction:column;justify-content:center;align-items:center;
+  width:40px;height:40px;gap:5px;
+  background:rgba(0,0,0,.07);border-radius:10px;border:none;cursor:pointer;
+  transition:background var(--transition);
+  flex-shrink:0;
+}
+.nav-hamburger:hover{background:rgba(0,0,0,.13);}
+.nav-hamburger span{
+  display:block;width:20px;height:2px;background:#000;border-radius:1px;
+  transition:transform var(--transition),opacity var(--transition);
+  transform-origin:center;
+}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-hamburger.open span:nth-child(2){opacity:0;}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* ── Mobile drawer ── */
+.nav-drawer{
+  display:none;
+  position:absolute;top:var(--nav-h);left:0;right:0;
+  background:rgba(253,216,53,.97);
+  backdrop-filter:var(--nav-blur);
+  -webkit-backdrop-filter:var(--nav-blur);
+  border-bottom:1px solid rgba(0,0,0,.12);
+  padding:8px 12px 16px;
+  box-shadow:0 8px 32px rgba(0,0,0,.15);
+}
+.nav-drawer.open{display:flex;flex-direction:column;gap:2px;}
+.nav-drawer a{
+  display:flex;align-items:center;gap:10px;
+  padding:13px 16px;
+  color:#000;font-size:14px;font-weight:600;letter-spacing:.2px;
+  text-decoration:none;border-radius:12px;
+  transition:background var(--transition);
+}
+.nav-drawer a:hover,.nav-drawer a:active{background:rgba(0,0,0,.1);}
+.nav-drawer a i{font-size:16px;width:20px;text-align:center;opacity:.7;}
+.nav-drawer-cta{
+  margin-top:8px;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 20px;
+  background:#000;color:var(--gold);
+  font-size:13px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;
+  border-radius:12px;text-decoration:none;
+}
+.nav-drawer-cta .dot{width:7px;height:7px;border-radius:50%;background:#ff4444;flex-shrink:0;animation:pulse 1.6s ease-in-out infinite;}
+
+/* ════ HERO ════ */
+.hero{background:#000 url('church.png') no-repeat center/cover;position:relative;display:flex;}
+.overlay{position:relative;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:70px 20px 50px;gap:8px;background:rgba(0,0,0,.45);min-height:auto;}
 .top-text{font-weight:600;line-height:1.3;display:flex;flex-direction:column;align-items:center;gap:1px;}
 .top-text .diocese{font-size:19px;color:#ff0000;font-weight:900;letter-spacing:.5px;}
-.top-text .nigeria{font-size:19px;color:#fdd835;font-weight:600;letter-spacing:.3px;}
-.top-text .anglican{font-size:15px;color:#fdd835;font-weight:700;letter-spacing:.2px;}
-
+.top-text .nigeria{font-size:19px;color:var(--gold);font-weight:600;letter-spacing:.3px;}
+.top-text .anglican{font-size:15px;color:var(--gold);font-weight:700;letter-spacing:.2px;}
 .hero-logo{width:130px;margin:6px;}
 .main-title{font-family:'Playfair Display',serif;font-size:30px;color:#fff;line-height:1.2;animation:glow 2s ease-in-out infinite alternate;}
-@keyframes glow{from{text-shadow:0 0 6px #fdd835;}to{text-shadow:0 0 30px #fdd835,0 0 60px #fdd835;}}
-.tagline{color:#ffffff;font-size:14px;}
-.address{color:#ffffff;font-size:13px;line-height:1.6;}
-.btn{margin-top:10px;padding:12px 24px;border:none;background:#fdd835;border-radius:25px;font-weight:700;cursor:pointer;display:inline-block;min-width:160px;font-size:15px;transition:.2s;}.btn:active{transform:scale(.93);}
+@keyframes glow{from{text-shadow:0 0 6px var(--gold);}to{text-shadow:0 0 30px var(--gold),0 0 60px var(--gold);}}
+.tagline{color:#fff;font-size:14px;}
+.address{color:#fff;font-size:13px;line-height:1.6;}
+.btn{margin-top:10px;padding:12px 24px;border:none;background:var(--gold);border-radius:25px;font-weight:700;cursor:pointer;display:inline-block;min-width:160px;font-size:15px;transition:.2s;}.btn:active{transform:scale(.93);}
 a,a:visited,a:hover,a:active{text-decoration:none;color:inherit;}
 .btn-live{margin-top:10px;padding:12px 24px;border:none;background:linear-gradient(135deg,#ba0000,#a70000);color:#fff;border-radius:25px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:160px;font-size:15px;}
 .btn-live:active{transform:scale(.93);}
 .join-btn-wrap{margin-top:12px;display:flex;flex-direction:column;align-items:center;gap:6px;}
+
+/* ════ SECTIONS ════ */
 .section-pad{padding:28px 20px;}
-.section-title{font-size:20px;font-weight:700;margin-bottom:16px;text-align:center;color:#000000;}
+.section-title{font-size:20px;font-weight:700;margin-bottom:16px;text-align:center;color:#000;}
 .cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
-.card-new{background:#000000;border-radius:18px;padding:18px 16px;display:flex;flex-direction:column;gap:7px;box-shadow:0 4px 20px rgba(0,0,0,0.25);border:1.5px solid rgba(255,208,1,0.999);transition:transform .25s,box-shadow .25s;cursor:pointer;position:relative;overflow:hidden;}
-.card-new:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(253,216,53,0.3);}
-.card-icon{font-size:19.5px;color:#fdd835;}
-.card-title{font-size:20px;font-weight:700;color:#ffffff;}
-.card-body{font-size:20px;color:#ffffff;line-height:1.65;}
-.card-body a{color:#fdd835 !important;}
+.card-new{background:#000;border-radius:var(--radius-card);padding:18px 16px;display:flex;flex-direction:column;gap:7px;box-shadow:0 4px 20px rgba(0,0,0,.25);border:1.5px solid rgba(255,208,1,.999);transition:transform .25s,box-shadow .25s;cursor:pointer;position:relative;overflow:hidden;}
+.card-new:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(253,216,53,.3);}
+.card-icon{font-size:19.5px;color:var(--gold);}
+.card-title{font-size:20px;font-weight:700;color:#fff;}
+.card-body{font-size:20px;color:#fff;line-height:1.65;}
+.card-body a{color:var(--gold) !important;}
 .event-list{display:flex;flex-direction:column;gap:8px;margin-top:2px;}
-.event-item{display:flex;align-items:flex-start;gap:6px;background:rgba(255,255,255,0.07);border-radius:8px;padding:4px 7px;border-left:2px solid #fdd835;}
-.event-dot{width:8px;height:8px;border-radius:50%;background:#fdd835;margin-top:5px;flex-shrink:0;}
-.event-name{font-size:14px;font-weight:600;color:#ffffff;line-height:1.5;}
+.event-item{display:flex;align-items:flex-start;gap:6px;background:rgba(255,255,255,.07);border-radius:8px;padding:4px 7px;border-left:2px solid var(--gold);}
+.event-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);margin-top:5px;flex-shrink:0;}
+.event-name{font-size:14px;font-weight:600;color:#fff;line-height:1.5;}
 .event-date{font-size:14px;color:#bbbaba;margin-top:1px;}
 
 /* FLYER CARD */
-.flyer-card{background:#000000;border-radius:18px;padding:12px 12px 14px;display:flex;flex-direction:column;gap:8px;box-shadow:0 4px 20px rgba(0,0,0,0.25);border:1.5px solid rgba(255,208,1,0.999);transition:transform .25s,box-shadow .25s;cursor:pointer;position:relative;overflow:hidden;}
-.flyer-card .card-icon{color:#fdd835;}
-.flyer-card .card-title{color:#ffffff;}
+.flyer-card{background:#000;border-radius:var(--radius-card);padding:12px 12px 14px;display:flex;flex-direction:column;gap:8px;box-shadow:0 4px 20px rgba(0,0,0,.25);border:1.5px solid rgba(255,208,1,.999);transition:transform .25s,box-shadow .25s;cursor:pointer;position:relative;overflow:hidden;}
 .flyer-card img{width:100%;height:150px;object-fit:contain;background:rgb(187,187,187);border-radius:12px;display:block;}
 
-/* ─── FULL-SCREEN POPUP ─── */
-.popup{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.96);
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
-  padding:0;
-}
-.popup img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  display:block;
-  border-radius:0;
-}
-.popup-close{
-  position:fixed;
-  top:14px;right:16px;
-  width:40px;height:40px;
-  background:#fdd835;
-  border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:20px;font-weight:900;color:#000000;
-  cursor:pointer;z-index:10000;
-  box-shadow:0 2px 10px rgba(0,0,0,0.5);
-  line-height:1;
-}
+/* POPUP */
+.popup{display:none;position:fixed;inset:0;background:rgba(0,0,0,.96);justify-content:center;align-items:center;z-index:9999;padding:0;}
+.popup img{width:100%;height:100%;object-fit:contain;display:block;border-radius:0;}
+.popup-close{position:fixed;top:14px;right:16px;width:40px;height:40px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;color:#000;cursor:pointer;z-index:10000;box-shadow:0 2px 10px rgba(0,0,0,.5);line-height:1;}
 
-/* ─── CONTACT SECTION ─── */
-.contact-section{
-  background:#a5a4a4;
-  padding:28px 20px;
-}
-.contact-cards-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:16px;
-}
-.contact-card{
-  background:#000000;
-  border-radius:18px;
-  padding:18px 16px;
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap:10px;
-  box-shadow:0 4px 20px rgba(0,0,0,0.25);
-  border:1.5px solid rgba(255,208,1,0.999);
-  transition:transform .25s,box-shadow .25s;
-}
-.contact-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(253,216,53,0.3);}
-.contact-card-icon{
-  width:44px;height:44px;
-  background:#fdd835;
-  border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:18px;color:#000000;
-  flex-shrink:0;
-}
+/* CONTACT */
+.contact-section{background:#a5a4a4;padding:28px 20px;}
+.contact-cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.contact-card{background:#000;border-radius:var(--radius-card);padding:18px 16px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;box-shadow:0 4px 20px rgba(0,0,0,.25);border:1.5px solid rgba(255,208,1,.999);transition:transform .25s,box-shadow .25s;}
+.contact-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(253,216,53,.3);}
+.contact-card-icon{width:44px;height:44px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;color:#000;flex-shrink:0;}
 .contact-card-label{font-size:13px;font-weight:600;color:#fffdfd;letter-spacing:.4px;text-transform:uppercase;}
-.contact-card-value{font-size:15px;font-weight:700;color:#ffffff;line-height:1.5;}
-.contact-card-value a{color:#fdd835 !important;font-weight:700;}
+.contact-card-value{font-size:15px;font-weight:700;color:#fff;line-height:1.5;}
+.contact-card-value a{color:var(--gold) !important;font-weight:700;}
 
-/* ─── FLOATING WHATSAPP BUTTON ─── */
-.wa-float{
-  position:fixed;
-  bottom:24px;
-  right:20px;
-  z-index:8888;
-}
-.wa-float a{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width:56px;
-  height:56px;
-  background:#25d366;
-  border-radius:50%;
-  color:#fff;
-  box-shadow:0 4px 16px rgba(37,211,102,0.55);
-}
-.wa-float a .wa-icon{
-  font-size:28px;
-}
+/* FLOATING WHATSAPP */
+.wa-float{position:fixed;bottom:24px;right:20px;z-index:8888;}
+.wa-float a{display:flex;align-items:center;justify-content:center;width:56px;height:56px;background:#25d366;border-radius:50%;color:#fff;box-shadow:0 4px 16px rgba(37,211,102,.55);}
+.wa-float a .wa-icon{font-size:28px;}
 
+/* DIVIDER */
 .divider-thick{height:8px;background:#000;width:100%;}
+
+/* MAP */
 .map-sec{padding:20px;background:rgb(250,232,32);}
 .map-sec iframe{width:100%;height:250px;border-radius:16px;border:none;}
-footer{background:linear-gradient(135deg,#000000 0%,#000000 50%,#000000 100%);color:#fff;padding:0;margin-top:10px;}
-.footer-top{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:40px 28px 28px;border-bottom:1px solid rgba(229,200,69,0.801);}
-.footer-col h4{color:#fdd835;font-size:15px;font-weight:700;margin-bottom:10px;letter-spacing:.4px;}
+
+/* FOOTER */
+footer{background:#000;color:#fff;padding:0;margin-top:10px;}
+.footer-top{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:40px 28px 28px;border-bottom:1px solid rgba(229,200,69,.8);}
+.footer-col h4{color:var(--gold);font-size:15px;font-weight:700;margin-bottom:10px;letter-spacing:.4px;}
 .footer-col p,.footer-col a{font-size:14px;color:rgb(240,240,240);line-height:1.9;display:block;transition:color .2s;}
-.footer-col a:hover{color:#fdd835;}
-.footer-divider{width:36px;height:3px;background:#fdd835;margin-bottom:12px;border-radius:2px;}
+.footer-col a:hover{color:var(--gold);}
+.footer-divider{width:36px;height:3px;background:var(--gold);margin-bottom:12px;border-radius:2px;}
 .footer-social{display:flex;gap:10px;margin-top:10px;}
-.footer-social a{width:36px;height:36px;border-radius:50%;background:rgba(253,216,53,0.12);border:1px solid rgba(253,216,53,0.3);display:flex;align-items:center;justify-content:center;color:#fdd835;font-size:14px;transition:background .2s,transform .2s;}
-.footer-social a:hover{background:#fdd835;color:#000000;transform:scale(1.1);}
+.footer-social a{width:36px;height:36px;border-radius:50%;background:rgba(253,216,53,.12);border:1px solid rgba(253,216,53,.3);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:14px;transition:background .2s,transform .2s;}
+.footer-social a:hover{background:var(--gold);color:#000;transform:scale(1.1);}
 .footer-bottom{display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px;text-align:center;}
-.footer-copy{font-size:14px;color:#ffffff;letter-spacing:.3px;}
-.footer-copy span{color:#fdd835;font-weight:700;}
-.footer-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(233,192,11,0.1);border:1px solid rgba(253,216,53,0.25);padding:6px 16px;border-radius:20px;font-size:16px;color:#fdd835;margin-top:4px;letter-spacing:.3px;}
+.footer-copy{font-size:14px;color:#fff;letter-spacing:.3px;}
+.footer-copy span{color:var(--gold);font-weight:700;}
+.footer-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(233,192,11,.1);border:1px solid rgba(253,216,53,.25);padding:6px 16px;border-radius:20px;font-size:16px;color:var(--gold);margin-top:4px;letter-spacing:.3px;}
 
-/* ─── TABLET DEVICES (701px - 1023px) ─── */
-@media(min-width:701px) and (max-width:1023px){
-  .navbar{padding:8px 18px;gap:18px;}
-  .navbar-brand{padding:5px 14px;font-size:13px;}
-  .navbar-links a{padding:7px 13px;font-size:12px;}
-  .overlay{padding:50px 25px 50px;}
-  .top-text .diocese{font-size:16px;}
-  .top-text .nigeria{font-size:16px;}
-  .top-text .anglican{font-size:13px;}
-  .hero-logo{width:125px;}
-  .main-title{font-size:28px;}
-  .section-pad{padding:32px 25px;}
-  .cards-grid{grid-template-columns:repeat(2,1fr);gap:18px;}
-  .card-title{font-size:18px;}
-  .card-body{font-size:16px;}
-  .contact-cards-grid{grid-template-columns:repeat(2,1fr);gap:18px;}
-  .map-sec iframe{height:300px;}
-  .footer-top{grid-template-columns:repeat(3,1fr);gap:28px;padding:32px 25px;}
-}
+/* ── SCROLL-MARGIN: offset for sticky nav ── */
+section,.hero,.section-pad,#program,#contact{scroll-margin-top:var(--nav-h);}
 
-/* ─── DESKTOP LARGE (1024px+) ─── */
+/* ════ RESPONSIVE ════ */
 @media(min-width:1024px){
-  .navbar{padding:8px 40px;gap:32px;}
-  .navbar-brand{padding:6px 18px;font-size:15px;}
-  .navbar-links a{padding:8px 16px;font-size:14px;}
-  .overlay{padding:80px 40px 80px;gap:12px;}
+  .navbar{padding:0 40px;}
+  .nav-brand-text .nb-main{font-size:14px;}
+  .overlay{padding:90px 40px 70px;gap:12px;}
   .top-text .diocese{font-size:20px;}
   .top-text .nigeria{font-size:20px;}
   .top-text .anglican{font-size:16px;}
@@ -260,33 +293,51 @@ footer{background:linear-gradient(135deg,#000000 0%,#000000 50%,#000000 100%);co
   .address{font-size:15px;}
   .section-pad{padding:40px 60px;}
   .section-title{font-size:24px;margin-bottom:24px;}
-  .cards-grid{grid-template-columns:repeat(2,1fr);gap:20px;}
+  .cards-grid{gap:20px;}
   .card-new{padding:20px;gap:10px;}
   .card-title{font-size:22px;}
   .card-body{font-size:16px;line-height:1.8;}
   .card-icon{font-size:22px;}
   .contact-section{padding:40px 60px;}
-  .contact-cards-grid{grid-template-columns:repeat(2,1fr);gap:24px;}
+  .contact-cards-grid{gap:24px;}
   .contact-card{padding:24px;gap:12px;}
   .map-sec{padding:40px 60px;}
   .map-sec iframe{height:400px;}
-  .footer-top{grid-template-columns:repeat(3,1fr);gap:40px;padding:50px 60px 40px;}
+  .footer-top{gap:40px;padding:50px 60px 40px;}
 }
 
-/* ─── MOBILE PHONES (max-width:700px) ─── */
+@media(min-width:701px) and (max-width:1023px){
+  .overlay{padding:55px 25px 50px;}
+  .top-text .diocese{font-size:16px;}
+  .top-text .nigeria{font-size:16px;}
+  .top-text .anglican{font-size:13px;}
+  .hero-logo{width:125px;}
+  .main-title{font-size:28px;}
+  .section-pad{padding:32px 25px;}
+  .cards-grid{gap:18px;}
+  .card-title{font-size:18px;}
+  .card-body{font-size:16px;}
+  .contact-cards-grid{gap:18px;}
+  .map-sec iframe{height:300px;}
+  .footer-top{gap:28px;padding:32px 25px;}
+}
+
 @media(max-width:700px){
-  /* Moderate mobile navbar height: slightly larger touch area but compact visual */
-  .navbar{padding:4px 12px;gap:0;justify-content:space-between;position:sticky;top:0;z-index:1000;min-height:36px;}
-  /* Mobile: plain black centered brand (no rounded rectangle) */
-  .navbar-brand{background:none;color:#000000;padding:0;font-size:14px;border-radius:0;box-shadow:none;position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;z-index:1001;font-weight:700;}
-  .navbar-links{display:none;}
-  /* place hamburger at right */
-  .navbar-menu-toggle{display:flex;align-items:center;justify-content:center;padding:6px 8px;order:3;margin-left:auto;}
-  .mobile-menu{width:100%;top:var(--nav-height-mobile);}
-  .mobile-menu a{padding:14px 20px;font-size:14px;}
-  .hero{min-height:auto;}
-  .overlay{padding:40px 15px 20px;gap:6px;min-height:-webkit-fill-available;}
-  /* ─── mobile top-text hierarchy ─── */
+  :root{--nav-h:var(--nav-h-mob);}
+  .navbar{padding:0 14px;height:var(--nav-h-mob);}
+  /* hide desktop links & CTA on mobile */
+  .nav-links{display:none;}
+  .nav-cta{display:none;}
+  .nav-hamburger{display:flex;}
+  /* smaller brand on mobile */
+  .nav-brand-text .nb-top{display:none;}
+  .nav-brand-text .nb-main{font-size:12px;}
+  .nav-brand-icon{width:30px;height:30px;}
+  .nav-brand-icon img{width:18px;height:18px;}
+  /* drawer sits below mobile nav */
+  .nav-drawer{top:var(--nav-h-mob);}
+  section,.hero,.section-pad,#program,#contact{scroll-margin-top:var(--nav-h-mob);}
+  .overlay{padding:40px 15px 30px;gap:6px;}
   .top-text .diocese{font-size:13px;}
   .top-text .nigeria{font-size:14px;}
   .top-text .anglican{font-size:10px;}
@@ -317,21 +368,8 @@ footer{background:linear-gradient(135deg,#000000 0%,#000000 50%,#000000 100%);co
   .footer-col h4{font-size:13px;}
   .footer-col p,.footer-col a{font-size:12px;}
   .footer-badge{font-size:14px;padding:6px 14px;}
-  .notice-img{height:180px;}
+  .flyer-card img{height:180px;}
 }
-
-/* Prevent sticky navbar from covering anchored sections */
-section, .hero, .section-pad, #program, #contact{
-  scroll-margin-top: var(--nav-height);
-}
-
-@media(max-width:700px){
-  :root{--nav-height:var(--nav-height-mobile);} /* mobile offset */
-  section, .hero, .section-pad, #program, #contact{
-    scroll-margin-top: calc(var(--nav-height));
-  }
-}
-
 </style>
 </head>
 <body>
@@ -339,24 +377,48 @@ section, .hero, .section-pad, #program, #contact{
 <!-- SLIDE OVERLAY -->
 <div id="slide-overlay"></div>
 
-<nav class="navbar">
-  <div class="navbar-brand">WELCOME!</div>
-  <button class="navbar-menu-toggle">☰</button>
-  <ul class="navbar-links">
-    <li><a href="#" onclick="document.querySelector('.hero').scrollIntoView({behavior:'smooth'}); return false;">HOME</a></li>
-    <li><a href="#" onclick="document.querySelectorAll('.section-pad')[0].scrollIntoView({behavior:'smooth'}); return false;">ABOUT</a></li>
-    <li><a href="#program" onclick="document.getElementById('program').scrollIntoView({behavior:'smooth'}); return false;">PROGRAMS</a></li>
-    <li><a href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'}); return false;">CONTACT</a></li>
+<!-- ═══════════════════════════════
+     2026 PREMIUM NAVBAR
+═══════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <!-- Brand -->
+  <div class="nav-brand">
+    <div class="nav-brand-icon">
+      <img src="logo.png" alt="St. Michael's Logo" decoding="async">
+    </div>
+    <div class="nav-brand-text">
+      <span class="nb-top">Welcome to</span>
+      <span class="nb-main">St. Michael's Anglican Church, Egbeda</span>
+    </div>
+  </div>
+
+  <!-- Desktop links -->
+  <ul class="nav-links">
+    <li><a href="#home" data-scroll="hero"><i class="fas fa-home"></i> Home</a></li>
+    <li><a href="#about" data-scroll="about"><i class="fas fa-church"></i> About</a></li>
+    <li><a href="#program" data-scroll="program"><i class="fas fa-calendar-alt"></i> Programs</a></li>
+    <li><a href="#contact" data-scroll="contact"><i class="fas fa-envelope"></i> Contact</a></li>
   </ul>
-  <div class="mobile-menu">
-    <a href="#" onclick="document.querySelector('.hero').scrollIntoView({behavior:'smooth'}); return false;">HOME</a>
-    <a href="#" onclick="document.querySelectorAll('.section-pad')[0].scrollIntoView({behavior:'smooth'}); return false;">ABOUT</a>
-    <a href="#program" onclick="document.getElementById('program').scrollIntoView({behavior:'smooth'}); return false;">PROGRAMS</a>
-    <a href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'}); return false;">CONTACT</a>
+  
+  <!-- Mobile hamburger -->
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- Mobile drawer -->
+  <div class="nav-drawer" id="nav-drawer" role="navigation">
+    <a href="#home" data-scroll="hero"><i class="fas fa-home"></i> Home</a>
+    <a href="#about" data-scroll="about"><i class="fas fa-church"></i> About</a>
+    <a href="#program" data-scroll="program"><i class="fas fa-calendar-alt"></i> Programs</a>
+    <a href="#contact" data-scroll="contact"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="https://www.facebook.com/share/1PJ4Uwx2TA" target="_blank" class="nav-drawer-cta social-link">
+      Join Us Live
+    </a>
   </div>
 </nav>
 
-<section class="hero">
+<!-- ═══════ HERO ═══════ -->
+<section class="hero" id="hero">
   <div class="overlay">
     <div class="top-text">
       <span class="diocese">DIOCESE OF LAGOS WEST</span>
@@ -376,8 +438,8 @@ section, .hero, .section-pad, #program, #contact{
   </div>
 </section>
 
-<!-- ABOUT OUR CHURCH -->
-<section class="section-pad" style="background:#a5a4a4;">
+<!-- ═══════ ABOUT ═══════ -->
+<section class="section-pad" id="about" style="background:#a5a4a4;">
   <div class="section-title">ABOUT OUR CHURCH</div>
   <div class="cards-grid">
     <div class="card-new">
@@ -395,7 +457,7 @@ section, .hero, .section-pad, #program, #contact{
       <div class="card-title">VISION</div>
       <div class="card-body">To be the leading diocese in the Church of Nigeria in preparing this nation for the second coming of Christ.</div>
     </div>
-    <div class="card-new" style="background:#000000;border-color:#fdd835;border-width:2px;">
+    <div class="card-new" style="background:#000;border-color:#fdd835;border-width:2px;">
       <div class="card-icon"><i class="fas fa-globe"></i></div>
       <div class="card-title">OUR MOTTO</div>
       <div class="card-body" style="font-size:16px;font-weight:700;color:#fdd835;letter-spacing:.4px;">Christ For All Nation</div>
@@ -403,7 +465,7 @@ section, .hero, .section-pad, #program, #contact{
   </div>
 </section>
 
-<!-- PROGRAM -->
+<!-- ═══════ PROGRAMS ═══════ -->
 <section id="program" class="section-pad" style="background:#a5a4a4;">
   <div class="section-title">CHURCH PROGRAM</div>
   <div class="cards-grid">
@@ -421,23 +483,21 @@ section, .hero, .section-pad, #program, #contact{
         <div class="event-item">
           <div class="event-dot"></div>
           <div>
-            <div class="event-name">HOLY COMMUNION SERVICE(Pentecost/White Sunday)</div>
+            <div class="event-name">HOLY COMMUNION SERVICE (Pentecost/White Sunday)</div>
             <div class="event-date">May 24th, 2026 &bull; 8:00 AM</div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- FLYER CARD -->
     <div class="flyer-card" style="align-self:start;" onclick="openPopup(event)">
       <div class="card-icon"><i class="fas fa-image"></i></div>
       <div class="card-title">Flyer — tap to enlarge</div>
-      <img src="flyer.png" class="notice-img" alt="Church Flyer" loading="lazy" decoding="async" fetchpriority="low">
+      <img src="flyer.png" alt="Church Flyer" loading="lazy" decoding="async" fetchpriority="low">
     </div>
   </div>
 </section>
 
-<!-- CONTACT US -->
+<!-- ═══════ CONTACT ═══════ -->
 <section class="contact-section" id="contact">
   <div class="section-title">CONTACT US</div>
   <div class="contact-cards-grid">
@@ -454,13 +514,13 @@ section, .hero, .section-pad, #program, #contact{
   </div>
 </section>
 
-<!-- FULL-SCREEN POPUP -->
+<!-- POPUP -->
 <div class="popup" id="popup" onclick="closePopup(event)">
   <div class="popup-close" onclick="closePopup(event)">&times;</div>
   <img src="flyer.png" alt="Full Flyer" decoding="async">
 </div>
 
-<!-- FLOATING WHATSAPP BUTTON -->
+<!-- FLOATING WHATSAPP -->
 <div class="wa-float">
   <a href="https://wa.me/2348037210209" target="_blank" class="social-link" title="Chat on WhatsApp">
     <i class="fab fa-whatsapp wa-icon"></i>
@@ -481,7 +541,7 @@ section, .hero, .section-pad, #program, #contact{
     <div class="footer-col">
       <div class="footer-divider"></div>
       <h4><i class="fas fa-church" style="margin-right:6px;"></i>Location &amp; Hours</h4>
-      <p>40 Alhaja Ramota Street Egbeda Or Bamgbola Avenue By Bakery B/Stop Along Akowonjo<br>Egbeda Road .</p>
+      <p>40 Alhaja Ramota Street Egbeda Or Bamgbola Avenue By Bakery B/Stop Along Akowonjo Egbeda Road.</p>
       <p style="margin-top:8px;">Sunday Service: <strong style="color:#fdd835;">7:00 AM</strong><br>Wednesday Ebenezer Hour: <strong style="color:#fdd835;">6:00 PM</strong></p>
     </div>
     <div class="footer-col">
@@ -493,82 +553,98 @@ section, .hero, .section-pad, #program, #contact{
         <a href="mailto:stmichaelsegbeda@yahoo.com"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
+    <div class="footer-col">
+      <div class="footer-divider"></div>
+      <h4><i class="fas fa-cross" style="margin-right:6px;"></i>Quick Links</h4>
+      <a href="#about" data-scroll="about">About</a>
+      <a href="#program" data-scroll="program">Programs</a>
+      <a href="#contact" data-scroll="contact">Contact</a>
+    </div>
   </div>
   <div class="footer-bottom">
-    <div class="footer-badge"><i class="fas fa-cross"></i>Join us this sunday</div>
+    <div class="footer-badge"><i class="fas fa-cross"></i> Join us this Sunday</div>
     <p class="footer-copy">&copy; 2026 <span>St. Michael's Anglican Church, Egbeda</span>. All Rights Reserved.</p>
   </div>
 </footer>
 
 <script defer>
-/* ── MOBILE MENU TOGGLE ── */
-document.addEventListener('DOMContentLoaded', function(){
-  var menuToggle = document.querySelector('.navbar-menu-toggle');
-  var mobileMenu = document.querySelector('.mobile-menu');
-  
-  if(menuToggle && mobileMenu){
-    menuToggle.addEventListener('click', function(e){
-      e.stopPropagation();
-      mobileMenu.classList.toggle('active');
-    });
-    
-    var mobileLinks = mobileMenu.querySelectorAll('a');
-    mobileLinks.forEach(function(link){
-      link.addEventListener('click', function(){
-        mobileMenu.classList.remove('active');
-      });
-    });
-    
-    document.addEventListener('click', function(e){
-      if(!e.target.closest('.navbar')){
-        mobileMenu.classList.remove('active');
-      }
-    });
+(function(){
+
+/* ── NAVBAR SCROLL EFFECT ── */
+var navbar = document.getElementById('navbar');
+var lastY = 0;
+function onScroll(){
+  var y = window.scrollY;
+  if(y > 20){ navbar.classList.add('scrolled'); }
+  else { navbar.classList.remove('scrolled'); }
+  lastY = y;
+}
+window.addEventListener('scroll', onScroll, {passive:true});
+
+/* ── HAMBURGER / DRAWER ── */
+var hamburger = document.getElementById('hamburger');
+var drawer = document.getElementById('nav-drawer');
+
+hamburger.addEventListener('click', function(e){
+  e.stopPropagation();
+  var open = drawer.classList.toggle('open');
+  hamburger.classList.toggle('open', open);
+  hamburger.setAttribute('aria-expanded', open);
+});
+
+document.addEventListener('click', function(e){
+  if(!e.target.closest('.navbar')){
+    drawer.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded','false');
   }
 });
 
-/* ── POPUP ── */
-function openPopup(event) {
-  event.stopPropagation();
-  document.getElementById('popup').style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-}
-function closePopup(event) {
-  document.getElementById('popup').style.display = 'none';
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown', function(e){
-  if(e.key === 'Escape') closePopup(e);
+/* ── SMOOTH SCROLL for all nav links ── */
+document.querySelectorAll('[data-scroll]').forEach(function(a){
+  a.addEventListener('click', function(e){
+    e.preventDefault();
+    var id = this.getAttribute('data-scroll');
+    var target = document.getElementById(id);
+    if(target){target.scrollIntoView({behavior:'smooth'});}
+    drawer.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded','false');
+  });
 });
+
+/* ── POPUP ── */
+window.openPopup = function(e){
+  e.stopPropagation();
+  document.getElementById('popup').style.display='flex';
+  document.body.style.overflow='hidden';
+};
+window.closePopup = function(e){
+  document.getElementById('popup').style.display='none';
+  document.body.style.overflow='';
+};
+document.addEventListener('keydown', function(e){if(e.key==='Escape')closePopup(e);});
 
 /* ── SLIDE ANIMATION ON SOCIAL LINKS ── */
 document.querySelectorAll('a.social-link').forEach(function(link){
   link.addEventListener('click', function(e){
     var href = this.href;
-    var target = this.target;
-
+    var tgt = this.target;
     if(!href || href.startsWith('mailto:') || href.startsWith('tel:')) return;
-
     e.preventDefault();
-
     var overlay = document.getElementById('slide-overlay');
     overlay.classList.remove('slide-go');
     void overlay.offsetWidth;
     overlay.classList.add('slide-go');
-
     setTimeout(function(){
-      if(target === '_blank'){
-        window.open(href, '_blank');
-      } else {
-        window.location.href = href;
-      }
-      setTimeout(function(){
-        overlay.classList.remove('slide-go');
-      }, 200);
-    }, 340);
+      if(tgt==='_blank'){ window.open(href,'_blank'); }
+      else { window.location.href=href; }
+      setTimeout(function(){ overlay.classList.remove('slide-go'); },200);
+    },340);
   });
 });
-</script>
 
+})();
+</script>
 </body>
 </html>
