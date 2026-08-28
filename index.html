@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>St. Michael's Anglican Church, Egbeda — Citadel of Peace</title>
 
 <!-- FAVICON (was missing) -->
@@ -59,6 +59,12 @@
   --transition:.25s cubic-bezier(.4,0,.2,1);
 }
 
+/* ── GLOBAL RESET (kills edge white-space + rogue overflow on phones) ── */
+*,*::before,*::after{box-sizing:border-box;}
+html,body{margin:0;padding:0;width:100%;max-width:100%;overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+body{font-family:'Poppins',sans-serif;}
+img{max-width:100%;height:auto;display:block;}
+
 /* ── SLIDE OVERLAY ── */
 #slide-overlay{position:fixed;inset:0;background:#000;z-index:99999;transform:translateX(100%);pointer-events:none;}
 #slide-overlay.slide-go{animation:slideGo .38s cubic-bezier(.7,0,1,1) forwards;}
@@ -91,8 +97,8 @@ body.gate-locked{overflow:hidden;}
   margin:0 auto 14px;
   font-size:26px;color:#000;
 }
-.gate-title{color:var(--gold);font-size:17px;font-weight:800;letter-spacing:.4px;margin-bottom:6px;text-transform:uppercase;}
-.gate-sub{color:#ddd;font-size:13px;line-height:1.5;margin-bottom:20px;}
+.gate-title{color:var(--gold);font-size:clamp(15px,4vw,17px);font-weight:800;letter-spacing:.4px;margin-bottom:6px;text-transform:uppercase;}
+.gate-sub{color:#ddd;font-size:clamp(12px,3.2vw,13px);line-height:1.5;margin-bottom:20px;}
 .gate-check-row{
   display:flex;align-items:center;gap:12px;
   background:#000;
@@ -115,7 +121,7 @@ body.gate-locked{overflow:hidden;}
 .gate-checkbox i{display:none;color:#000;font-size:15px;}
 .gate-check-row.checked .gate-checkbox{background:var(--gold);transform:scale(1.05);}
 .gate-check-row.checked .gate-checkbox i{display:block;}
-.gate-check-label{color:#fff;font-size:14px;font-weight:600;text-align:left;}
+.gate-check-label{color:#fff;font-size:clamp(13px,3.5vw,14px);font-weight:600;text-align:left;}
 .gate-status{margin-top:14px;font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.3px;min-height:16px;}
 .gate-footer{margin-top:16px;font-size:11px;color:#777;letter-spacing:.2px;}
 
@@ -130,7 +136,7 @@ body.gate-locked{overflow:hidden;}
   -webkit-backdrop-filter:var(--nav-blur);
   border-bottom:1px solid var(--nav-border);
   box-shadow:0 1px 0 rgba(255,255,255,.3),0 4px 24px rgba(0,0,0,.1);
-  padding:0 24px;
+  padding:0 clamp(12px,4vw,24px);
   display:flex;align-items:center;justify-content:space-between;gap:16px;
   transition:background var(--transition),box-shadow var(--transition);
 }
@@ -156,7 +162,7 @@ body.gate-locked{overflow:hidden;}
 .nav-brand-text{
   display:flex;flex-direction:column;line-height:1.1;
 }
-.nav-brand-text .nb-top{font-size:13px;font-weight:600;color:#000000;letter-spacing:.6px;}
+.nav-brand-text .nb-top{font-size:clamp(11px,3vw,13px);font-weight:600;color:#000000;letter-spacing:.6px;}
 
 /* ── Desktop links ── */
 .nav-links{
@@ -252,41 +258,41 @@ body.gate-locked{overflow:hidden;}
 @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
 
 /* ════ HERO ════ */
-.hero{background:#000 url('church.png') no-repeat center/cover;position:relative;display:flex;}
-.overlay{position:relative;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:70px 20px 50px;gap:8px;background:rgba(0,0,0,.45);min-height:auto;}
+.hero{background:#000 url('church.png') no-repeat center/cover;position:relative;display:flex;width:100%;}
+.overlay{position:relative;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:70px clamp(14px,5vw,20px) 50px;gap:8px;background:rgba(0,0,0,.45);min-height:auto;}
 .top-text{font-weight:600;line-height:1.3;display:flex;flex-direction:column;align-items:center;gap:1px;}
-.top-text .diocese{font-size:19px;color:#ff0000;font-weight:900;letter-spacing:.5px;}
-.top-text .nigeria{font-size:19px;color:var(--gold);font-weight:600;letter-spacing:.3px;}
-.top-text .anglican{font-size:15px;color:var(--gold);font-weight:700;letter-spacing:.2px;}
-.hero-logo{width:130px;margin:6px;}
-.main-title{font-family:'Playfair Display',serif;font-size:30px;color:#fff;line-height:1.2;animation:glow 2s ease-in-out infinite alternate;}
+.top-text .diocese{font-size:clamp(13px,4vw,19px);color:#ff0000;font-weight:900;letter-spacing:.5px;}
+.top-text .nigeria{font-size:clamp(13px,4vw,19px);color:var(--gold);font-weight:600;letter-spacing:.3px;}
+.top-text .anglican{font-size:clamp(10px,3vw,15px);color:var(--gold);font-weight:700;letter-spacing:.2px;}
+.hero-logo{width:clamp(90px,26vw,130px);margin:6px auto;}
+.main-title{font-family:'Playfair Display',serif;font-size:clamp(19px,6vw,30px);color:#fff;line-height:1.2;animation:glow 2s ease-in-out infinite alternate;word-wrap:break-word;}
 @keyframes glow{from{text-shadow:0 0 6px var(--gold);}to{text-shadow:0 0 30px var(--gold),0 0 60px var(--gold);}}
-.tagline{color:#fff;font-size:14px;}
-.address{color:#fff;font-size:13px;line-height:1.6;}
-.btn{margin-top:10px;padding:12px 24px;border:none;background:var(--gold);border-radius:25px;font-weight:700;cursor:pointer;display:inline-block;min-width:160px;font-size:15px;transition:.2s;}.btn:active{transform:scale(.93);}
+.tagline{color:#fff;font-size:clamp(11px,3vw,14px);}
+.address{color:#fff;font-size:clamp(10.5px,2.8vw,13px);line-height:1.6;}
+.btn{margin-top:10px;padding:12px 24px;border:none;background:var(--gold);border-radius:25px;font-weight:700;cursor:pointer;display:inline-block;min-width:160px;font-size:clamp(13px,3.2vw,15px);transition:.2s;}.btn:active{transform:scale(.93);}
 a,a:visited,a:hover,a:active{text-decoration:none;color:inherit;}
-.btn-live{margin-top:10px;padding:12px 24px;border:none;background:linear-gradient(135deg,#ba0000,#a70000);color:#fff;border-radius:25px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:160px;font-size:15px;}
+.btn-live{margin-top:10px;padding:12px 24px;border:none;background:linear-gradient(135deg,#ba0000,#a70000);color:#fff;border-radius:25px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:160px;font-size:clamp(13px,3.2vw,15px);}
 .btn-live:active{transform:scale(.93);}
 .join-btn-wrap{margin-top:12px;display:flex;flex-direction:column;align-items:center;gap:6px;}
 
 /* ════ SECTIONS ════ */
-.section-pad{padding:28px 20px;}
-.section-title{font-size:20px;font-weight:700;margin-bottom:16px;text-align:center;color:#000;}
+.section-pad{padding:28px clamp(14px,5vw,20px);}
+.section-title{font-size:clamp(16px,4.5vw,20px);font-weight:700;margin-bottom:16px;text-align:center;color:#000;}
 .cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
-.card-new{background:#000;border-radius:var(--radius-card);padding:18px 16px;display:flex;flex-direction:column;gap:7px;box-shadow:0 4px 20px rgba(0,0,0,.25);border:1.5px solid rgba(255,208,1,.999);transition:transform .25s,box-shadow .25s;cursor:pointer;position:relative;overflow:hidden;}
+.card-new{background:#000;border-radius:var(--radius-card);padding:18px 16px;display:flex;flex-direction:column;gap:7px;box-shadow:0 4px 20px rgba(0,0,0,.25);border:1.5px solid rgba(255,208,1,.999);transition:transform .25s,box-shadow .25s;cursor:pointer;position:relative;overflow:hidden;min-width:0;}
 .card-new:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(253,216,53,.3);}
 .card-icon{font-size:19.5px;color:var(--gold);}
-.card-title{font-size:20px;font-weight:700;color:#fff;}
-.card-body{font-size:20px;color:#fff;line-height:1.65;}
+.card-title{font-size:clamp(14px,3.6vw,20px);font-weight:700;color:#fff;}
+.card-body{font-size:clamp(12.5px,3.2vw,16px);color:#fff;line-height:1.65;}
 .card-body a{color:var(--gold) !important;}
 .event-list{display:flex;flex-direction:column;gap:8px;margin-top:2px;}
 .event-item{display:flex;align-items:flex-start;gap:6px;background:rgba(255,255,255,.07);border-radius:8px;padding:4px 7px;border-left:2px solid var(--gold);}
 .event-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);margin-top:5px;flex-shrink:0;}
-.event-name{font-size:14px;font-weight:600;color:#fff;line-height:1.5;}
-.event-date{font-size:14px;color:#bbbaba;margin-top:1px;}
+.event-name{font-size:clamp(12px,3vw,14px);font-weight:600;color:#fff;line-height:1.5;}
+.event-date{font-size:clamp(11px,2.8vw,14px);color:#bbbaba;margin-top:1px;}
 
 /* FLYER CARD */
-.flyer-card{background:#000;border-radius:var(--radius-card);padding:12px 12px 14px;display:flex;flex-direction:column;gap:8px;box-shadow:0 4px 20px rgba(0,0,0,.25);border:1.5px solid rgba(255,208,1,.999);transition:transform .25s,box-shadow .25s;cursor:pointer;position:relative;overflow:hidden;}
+.flyer-card{background:#000;border-radius:var(--radius-card);padding:12px 12px 14px;display:flex;flex-direction:column;gap:8px;box-shadow:0 4px 20px rgba(0,0,0,.25);border:1.5px solid rgba(255,208,1,.999);transition:transform .25s,box-shadow .25s;cursor:pointer;position:relative;overflow:hidden;min-width:0;}
 .flyer-card img{width:100%;height:150px;object-fit:contain;background:rgb(187,187,187);border-radius:12px;display:block;}
 
 /* POPUP */
@@ -296,13 +302,13 @@ a,a:visited,a:hover,a:active{text-decoration:none;color:inherit;}
 .popup-close{position:fixed;top:14px;right:16px;width:40px;height:40px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;color:#000;cursor:pointer;z-index:10000;box-shadow:0 2px 10px rgba(0,0,0,.5);line-height:1;}
 
 /* CONTACT */
-.contact-section{background:#a5a4a4;padding:28px 20px;}
+.contact-section{background:#a5a4a4;padding:28px clamp(14px,5vw,20px);}
 .contact-cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
-.contact-card{background:#000;border-radius:var(--radius-card);padding:18px 16px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;box-shadow:0 4px 20px rgba(0,0,0,.25);border:1.5px solid rgba(255,208,1,.999);transition:transform .25s,box-shadow .25s;}
+.contact-card{background:#000;border-radius:var(--radius-card);padding:18px 16px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;box-shadow:0 4px 20px rgba(0,0,0,.25);border:1.5px solid rgba(255,208,1,.999);transition:transform .25s,box-shadow .25s;min-width:0;}
 .contact-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(253,216,53,.3);}
 .contact-card-icon{width:44px;height:44px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;color:#000;flex-shrink:0;}
-.contact-card-label{font-size:13px;font-weight:600;color:#fffdfd;letter-spacing:.4px;text-transform:uppercase;}
-.contact-card-value{font-size:15px;font-weight:700;color:#fff;line-height:1.5;}
+.contact-card-label{font-size:clamp(11px,2.8vw,13px);font-weight:600;color:#fffdfd;letter-spacing:.4px;text-transform:uppercase;}
+.contact-card-value{font-size:clamp(12.5px,3.2vw,15px);font-weight:700;color:#fff;line-height:1.5;word-break:break-word;}
 .contact-card-value a{color:var(--gold) !important;font-weight:700;}
 
 /* FLOATING WHATSAPP */
@@ -315,22 +321,22 @@ a,a:visited,a:hover,a:active{text-decoration:none;color:inherit;}
 
 /* MAP */
 .map-sec{padding:20px;background:rgba(253,216,53,0.97);}
-.map-sec iframe{width:100%;height:250px;border-radius:16px;border:none;}
+.map-sec iframe{width:100%;height:250px;border-radius:16px;border:none;display:block;}
 
 /* FOOTER */
 footer{background:#000;color:#fff;padding:0;margin-top:10px;}
 .footer-top{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:40px 28px 28px;border-bottom:1px solid rgba(229,200,69,.8);}
-.footer-col h4{color:var(--gold);font-size:15px;font-weight:700;margin-bottom:10px;letter-spacing:.4px;}
-.footer-col p,.footer-col a{font-size:14px;color:rgb(240,240,240);line-height:1.9;display:block;transition:color .2s;}
+.footer-col h4{color:var(--gold);font-size:clamp(13px,3.4vw,15px);font-weight:700;margin-bottom:10px;letter-spacing:.4px;}
+.footer-col p,.footer-col a{font-size:clamp(12px,3vw,14px);color:rgb(240,240,240);line-height:1.9;display:block;transition:color .2s;}
 .footer-col a:hover{color:var(--gold);}
 .footer-divider{width:36px;height:3px;background:var(--gold);margin-bottom:12px;border-radius:2px;}
 .footer-social{display:flex;gap:10px;margin-top:10px;}
 .footer-social a{width:36px;height:36px;border-radius:50%;background:rgba(253,216,53,.12);border:1px solid rgba(253,216,53,.3);display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:14px;transition:background .2s,transform .2s;}
 .footer-social a:hover{background:var(--gold);color:#000;transform:scale(1.1);}
 .footer-bottom{display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px;text-align:center;}
-.footer-copy{font-size:14px;color:#fff;letter-spacing:.3px;}
+.footer-copy{font-size:clamp(12px,3vw,14px);color:#fff;letter-spacing:.3px;}
 .footer-copy span{color:var(--gold);font-weight:700;}
-.footer-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(233,192,11,.1);border:1px solid rgba(253,216,53,.25);padding:6px 16px;border-radius:20px;font-size:16px;color:var(--gold);margin-top:4px;letter-spacing:.3px;}
+.footer-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(233,192,11,.1);border:1px solid rgba(253,216,53,.25);padding:6px 16px;border-radius:20px;font-size:clamp(13px,3.4vw,16px);color:var(--gold);margin-top:4px;letter-spacing:.3px;}
 
 /* ── SCROLL-MARGIN: offset for sticky nav ── */
 section,.hero,.section-pad,#program,#contact{scroll-margin-top:var(--nav-h);}
@@ -340,19 +346,12 @@ section,.hero,.section-pad,#program,#contact{scroll-margin-top:var(--nav-h);}
   .navbar{padding:0 40px;}
   .nav-brand-text .nb-main{font-size:14px;}
   .overlay{padding:90px 40px 70px;gap:12px;}
-  .top-text .diocese{font-size:20px;}
-  .top-text .nigeria{font-size:20px;}
-  .top-text .anglican{font-size:16px;}
   .hero-logo{width:140px;}
-  .main-title{font-size:36px;}
-  .tagline{font-size:16px;}
-  .address{font-size:15px;}
   .section-pad{padding:40px 60px;}
-  .section-title{font-size:24px;margin-bottom:24px;}
+  .section-title{margin-bottom:24px;}
   .cards-grid{gap:20px;}
   .card-new{padding:20px;gap:10px;}
-  .card-title{font-size:22px;}
-  .card-body{font-size:16px;line-height:1.8;}
+  .card-body{line-height:1.8;}
   .card-icon{font-size:22px;}
   .contact-section{padding:40px 60px;}
   .contact-cards-grid{gap:24px;}
@@ -364,15 +363,9 @@ section,.hero,.section-pad,#program,#contact{scroll-margin-top:var(--nav-h);}
 
 @media(min-width:701px) and (max-width:1023px){
   .overlay{padding:55px 25px 50px;}
-  .top-text .diocese{font-size:16px;}
-  .top-text .nigeria{font-size:16px;}
-  .top-text .anglican{font-size:13px;}
   .hero-logo{width:125px;}
-  .main-title{font-size:28px;}
   .section-pad{padding:32px 25px;}
   .cards-grid{gap:18px;}
-  .card-title{font-size:18px;}
-  .card-body{font-size:16px;}
   .contact-cards-grid{gap:18px;}
   .map-sec iframe{height:300px;}
   .footer-top{gap:28px;padding:32px 25px;}
@@ -380,51 +373,47 @@ section,.hero,.section-pad,#program,#contact{scroll-margin-top:var(--nav-h);}
 
 @media(max-width:700px){
   :root{--nav-h:var(--nav-h-mob);}
-  .navbar{padding:0 14px;height:var(--nav-h-mob);}
+  .navbar{height:var(--nav-h-mob);}
   /* hide desktop links & CTA on mobile */
   .nav-links{display:none;}
   .nav-cta{display:none;}
   .nav-hamburger{display:flex;}
   /* smaller brand on mobile */
-  .nav-brand-text .nb-top{display:block;font-size:14px;}
-  .nav-brand-text .nb-main{font-size:12px;}
+  .nav-brand-text .nb-top{display:block;}
   .nav-brand-icon{width:30px;height:30px;}
   .nav-brand-icon img{width:18px;height:18px;}
   /* drawer sits below mobile nav */
   .nav-drawer{top:var(--nav-h-mob);}
   section,.hero,.section-pad,#program,#contact{scroll-margin-top:var(--nav-h-mob);}
   .overlay{padding:40px 15px 30px;gap:6px;}
-  .top-text .diocese{font-size:13px;}
-  .top-text .nigeria{font-size:14px;}
-  .top-text .anglican{font-size:10px;}
-  .hero-logo{width:110px;margin:2px;}
-  .main-title{font-size:22px;line-height:1.1;}
-  .tagline{font-size:12px;}
-  .address{font-size:11px;line-height:1.5;}
-  .btn,.btn-live{margin-top:6px;padding:10px 16px;min-height:44px;font-size:14px;}
+  .hero-logo{margin:2px auto;}
+  .main-title{line-height:1.15;}
+  .btn,.btn-live{margin-top:6px;padding:10px 16px;min-height:44px;}
   .section-pad{padding:20px 15px;}
-  .section-title{font-size:18px;margin-bottom:12px;}
+  .section-title{margin-bottom:12px;}
   .cards-grid{grid-template-columns:1fr;gap:12px;}
   .card-new{padding:14px;gap:6px;}
-  .card-title{font-size:16px;}
-  .card-body{font-size:13px;line-height:1.5;}
   .card-icon{font-size:18px;}
   .contact-section{padding:20px 15px;}
   .contact-cards-grid{grid-template-columns:1fr;gap:12px;}
   .contact-card{padding:14px;gap:8px;}
   .contact-card-icon{width:40px;height:40px;font-size:16px;}
-  .contact-card-label{font-size:12px;}
-  .contact-card-value{font-size:14px;}
   .wa-float{bottom:20px;right:16px;}
   .wa-float a{width:52px;height:52px;}
   .wa-float a .wa-icon{font-size:26px;}
   .map-sec{padding:15px;}
   .map-sec iframe{height:220px;}
   .footer-top{grid-template-columns:1fr;gap:20px;padding:24px 15px;}
-  .footer-col h4{font-size:13px;}
-  .footer-col p,.footer-col a{font-size:12px;}
-  .footer-badge{font-size:14px;padding:6px 14px;}
   .flyer-card img{height:180px;}
+}
+
+/* ── EXTRA-SMALL PHONES (older/narrow devices, iPhone SE etc.) ── */
+@media(max-width:360px){
+  .overlay{padding:32px 12px 24px;}
+  .hero-logo{width:80px;}
+  .section-pad{padding:16px 12px;}
+  .contact-section{padding:16px 12px;}
+  .card-new,.contact-card{padding:12px;}
 }
 </style>
 </head>
@@ -528,7 +517,7 @@ section,.hero,.section-pad,#program,#contact{scroll-margin-top:var(--nav-h);}
     <div class="card-new" style="background:#000;border-color:#fdd835;border-width:2px;">
       <div class="card-icon"><i class="fas fa-globe"></i></div>
       <div class="card-title">OUR MOTTO</div>
-      <div class="card-body" style="font-size:16px;font-weight:700;color:#fdd835;letter-spacing:.4px;">Christ For All Nation</div>
+      <div class="card-body" style="font-weight:700;color:#fdd835;letter-spacing:.4px;">Christ For All Nation</div>
     </div>
   </div>
 </section>
